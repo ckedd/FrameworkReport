@@ -28,6 +28,8 @@ gem 'jbuilder', '~> 2.5'
 # gem 'bcrypt', '~> 3.1.7'
 # creating users/authentication system
 gem 'clearance'
+#catch and log bugs
+gem 'bugsnag'
 
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
