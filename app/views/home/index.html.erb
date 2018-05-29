@@ -1,1 +1,22 @@
-<h1>This will be where you are redirected to after signing in.</h1>
+<h1>This is the landing page.</h1>
+<h3>User conditional to sign in</h3>
+<h3>Signing in will redirect you back, but also show you new reviews, packages, etc. </h3>
+
+<% if signed_in? %>
+  This will only show if you are signed in :3
+<% end %>
+
+<br/>
+
+<% if signed_in? %>
+      Signed in as: <%= current_user.email %>
+      <%= button_to 'Sign out', sign_out_path, method: :delete %>
+    <% else %>
+      <%= link_to 'Sign in', sign_in_path %>
+    <% end %>
+
+    <div id="flash">
+      <% flash.each do |key, value| %>
+        <div class="flash <%= key %>"><%= value %></div>
+    <% end %>
+</div>
