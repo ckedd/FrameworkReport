@@ -3,22 +3,150 @@
 <head>
   <%= javascript_include_tag 'application' %>
   <%= csrf_meta_tag %>
+  <link href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900" rel="stylesheet">
+<%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
 </head>
 <body>
-  <div id="header">
-    <% if signed_in? -%>
-      <%= button_to t(".sign_out"), sign_out_path, method: :delete %>
-    <% else -%>
-      <%= link_to t(".sign_in"), sign_in_path %>
-    <% end -%>
-  </div>
 
-  <div id="flash">
-    <% flash.each do |key, value| -%>
-      <div id="flash_<%= key %>"><%=h value %></div>
+
+
+
+
+  <div class="container">
+   <nav class="sidebar">
+     <div class="empty"></div>
+<div id="header">
+  <% if signed_in? -%>
+    <%= button_to t(".sign_out"), sign_out_path, method: :delete %>
+      <% else -%>
+        <%= link_to t(".sign_in"), sign_in_path %>
+          <% end -%>
+</div>
+     <a href='#sign_in'><div class="home active">
+       home
+     </div></a>
+      <a href='#popup1'><div class="one">
+       one
+     </div></a>
+     <a href='#popup2'><div class="two">
+       two
+     </div></a>
+     <a href='#popup3'><div class="three">
+       three
+     </div></a>
+     <div class="empty"></div>
+   </nav>
+
+   <main class="main-view">
+<div id="flash">
+  <% flash.each do |key, value| -%>
+    <div id="flash_<%= key %>">
+      <%=h value %>
+    </div>
     <% end %>
-  </div>
+</div>
+       <%= yield %>
 
-  <%= yield %>
+     <div class="popup" id='popup1'>
+       <div class="popup-content">
+         <div class="popup-left">
+           <img src="starry_sky.jpg" class='popup-img'>
+
+           <img src="starry_sky_on_beach.jpg" class='popup-img'>
+         </div>
+         <div class="popup-right">
+           <a href='#section-three' class='popup-close'>
+             &times; </a>
+           <h2 class="heading-secondary margin-bot-med">Heading for content</h2>
+
+           <p class="popup-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis eveniet, modi reiciendis dignissimos consequuntur
+             ea ad officia quas molestias eos beatae a consectetur voluptates repellat sed fugit nemo quasi! Sed amet autem officiis
+             labore illum ducimus nobis dignissimos? Corporis voluptates officiis molestias. Nostrum at doloremque distinctio
+             delectus officiis ea porro. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Officia iste amet inventore.
+             Neque dicta facere est molestias enim, eos tempora aperiam aliquam, accusamus unde ex vitae qui. Illum veniam iste
+             neque, corporis eius nisi sint aut suscipit aliquam dolores nihil!
+           </p>
+         </div>
+       </div>
+     </div>
+
+     <div class="popup" id='popup2'>
+       <div class="popup-content">
+         <div class="popup-left">
+           <img src="starry_sky.jpg" class='popup-img'>
+
+           <img src="starry_sky_on_beach.jpg" class='popup-img'>
+         </div>
+         <div class="popup-right">
+           <a href='#section-three' class='popup-close'>
+             &times; </a>
+           <h2 class="heading-secondary margin-bot-med">Heading for content</h2>
+
+           <p class="popup-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis eveniet, modi reiciendis dignissimos consequuntur
+             ea ad officia quas molestias eos beatae a consectetur voluptates repellat sed fugit nemo quasi! Sed amet autem officiis
+             labore illum ducimus nobis dignissimos? Corporis voluptates officiis molestias. Nostrum at doloremque distinctio
+             delectus officiis ea porro. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Officia iste amet inventore.
+             Neque dicta facere est molestias enim, eos tempora aperiam aliquam, accusamus unde ex vitae qui. Illum veniam iste
+             neque, corporis eius nisi sint aut suscipit aliquam dolores nihil!
+           </p>
+         </div>
+       </div>
+     </div>
+
+     <div class="popup" id='popup3'>
+       <div class="popup-content">
+         <div class="popup-left">
+           <img src="starry_sky.jpg" class='popup-img'>
+
+           <img src="starry_sky_on_beach.jpg" class='popup-img'>
+         </div>
+         <div class="popup-right">
+           <a href='#section-three' class='popup-close'>
+             &times; </a>
+           <h2 class="heading-secondary margin-bot-med">Heading for content</h2>
+
+           <p class="popup-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis eveniet, modi reiciendis dignissimos consequuntur
+             ea ad officia quas molestias eos beatae a consectetur voluptates repellat sed fugit nemo quasi! Sed amet autem officiis
+             labore illum ducimus nobis dignissimos? Corporis voluptates officiis molestias. Nostrum at doloremque distinctio
+             delectus officiis ea porro. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Officia iste amet inventore.
+             Neque dicta facere est molestias enim, eos tempora aperiam aliquam, accusamus unde ex vitae qui. Illum veniam iste
+             neque, corporis eius nisi sint aut suscipit aliquam dolores nihil!
+           </p>
+         </div>
+       </div>
+     </div>
+
+
+   </main>
+ </div>
+
+ <div class="popup" id='sign_in'>
+   <div class="popup-content center-text">
+     <div>
+       <h2 class="margin-bot-med">Sign In</h2>
+       <a href='#section-three' class='popup-close'>
+         &times; </a>
+
+       <div>
+         <form action="/sign_in" class="form" method='post'>
+           <div>
+
+
+             <input type="text" class="form_input" placeholder="Username" name='username' required>
+             <label for="username" class="form-label">Username</label>
+
+
+             <input type="password" class="form_input" placeholder="Password" name="password" required>
+             <label for="password" class="form-label">Password</label>
+
+             <input class="btn btn-orange" type='submit' value='Sign In'>
+
+           </div>
+         </form>
+       </div>
+     </div>
+   </div>
+ </div>
+
 </body>
 </html>
