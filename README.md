@@ -11,7 +11,7 @@ The app uses the Ruby Gems API with pre-built information from the community.
 When a user opens the app for the first time, s/he needs to type in the name of the ruby gem or framework, so the app can display the ruby gem or frameworks reviews, as well as other pertinent information (when it was created, when it was last updated, who the author is, what do other people think of it).
 
 ## Future
-While the app currently is limited to ruby gems and frameworks, we want to expand to more tech related items that are not as well documented in a central location on the internet in the future. 
+While the app currently is limited to ruby gems and frameworks, we want to expand to more tech related items that are not as well documented in a central location on the internet in the future...
 
 ## Authors
 * **Mada Romero** - [thefifthdentist](https://github.com/thefifthdentist)
